@@ -1,13 +1,14 @@
-import './App.css';
-import Form from './Components/Form';
-import smart from '../src/Images/Image.png'
+import "./App.css";
+import Form from "./Components/Form";
+import { Container } from "@mui/material";
+import { GetImage } from "./Components/GetImage";
 
 function App() {
   return (
-    <div className="App">
-      <img src={ smart} alt='Loading...'/>
-      <Form/>
-    </div>
+    <Container style={{ maxWidth: "100%", margin: "0", padding: "0" }}>
+          <GetImage />
+          <Form />
+    </Container>
   );
 }
 
