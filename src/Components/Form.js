@@ -1,5 +1,12 @@
 import { Card, CardContent } from "@mui/material";
 import { useForm } from "react-hook-form";
+import InputName from "./InputName";
+import InputPhone from "./InputPhone";
+import InputEmail from "./InputEmail";
+import SelectCity from "./SelectCity";
+import SelectLanguageOfInterest from "./SelectLanguageOfInterest";
+import SelectTypeOfRequest from "./SelectTypeOfRequest";
+import { InputComments } from "./InputComments";
 
 const Form = () => {
   const {
@@ -43,81 +50,46 @@ const Form = () => {
   };
 
   return (
-    <Card sx={{ ml: 119, width: "auto", height: "auto" }}>
-      <CardContent>
-        <h1>¡Queremos acompañarte!</h1>
-        <h3>Déjanos tus datos</h3>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <input
-              type="text"
-              {...register("Nombre", { required: true })}
-              placeholder="Nombre"
-            />
-            {nameValidation}
-          </div>
-          <div>
-            <input
-              type="text"
-              {...register("Teléfono", { required: true })}
-              placeholder="Teléfono"
-            />
-            {phoneValidation}
-          </div>
-          <div>
-            <input
-              type="text"
-              {...register("CorreoElectrónico", {
-                required: true,
-                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
-              })}
-              placeholder="Correo Electrónico"
-            />
-            {emailValidation}
-            {validEmail}
-          </div>
-          <div>
-            <select {...register("Ciudad", { required: true })}>
-              <option value="Ciudad">Ciudad</option>
-              <option value="Bogotá">Bogotá</option>
-              <option value="Medellin">Medellin</option>
-              <option value="Bucaramanga">Bucaramanga</option>
-              <option value="Otra Ciudad">Otra Ciudad</option>
-              <option value="Otro País">Otro País</option>
-            </select>
-            {cityValidation}
-          </div>
-          <div>
-            <select {...register("IdiomaDeInterés", { required: true })}>
-              <option value="Idioma de interés">Idioma de interés</option>
-              <option value="Inglés">Inglés</option>
-              <option value="Francés">Francés</option>
-              <option value="Otros Idiomas">Otros Idiomas</option>
-            </select>
-            {languageOfInterestValidation}
-          </div>
-          <div>
-            <select {...register("TipoDeSolicitud", { required: true })}>
-              <option value="Tipo de solicitud">Tipo de solicitud</option>
-              <option value="Cotización">Cotización</option>
-              <option value="Académico">Académico</option>
-              <option value="Servicio al cliente">Servicio al cliente</option>
-              <option value="Cobranzas">Cobranzas</option>
-            </select>
-            {typeOfRequestValidation}
-          </div>
-          <div>
-            <input
-              type="text"
-              {...register("Comentarios", { required: true })}
-              placeholder="Comentarios"
-            />
-            {feedbackValidation}
-          </div>
-          <input type="submit" value="Enviar" />
-        </form>
-      </CardContent>
-    </Card>
+    // <Card sx={{ ml: 119, width: "auto", height: "auto" }}>
+    //   <CardContent>
+    <>
+      <h1>¡Queremos acompañarte!</h1>
+      <h3>Déjanos tus datos</h3>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <InputName register={register} />
+          {nameValidation}
+        </div>
+        <div>
+          <InputPhone register={register} />
+          {phoneValidation}
+        </div>
+        <div>
+          <InputEmail register={register} />
+          {emailValidation}
+          {validEmail}
+        </div>
+        <div>
+          <SelectCity register={register} />
+          {cityValidation}
+        </div>
+        <div>
+          <SelectLanguageOfInterest register={register} />
+          {languageOfInterestValidation}
+        </div>
+        <div>
+          <SelectTypeOfRequest register={register} />
+          {typeOfRequestValidation}
+        </div>
+        <div>
+          <InputComments register={register} />
+          {feedbackValidation}
+        </div>
+        <input type="submit" value="Enviar" />
+      </form>
+    </>
+    //   </CardContent>
+    // </Card>
   );
 };
 
