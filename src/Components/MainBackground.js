@@ -1,23 +1,31 @@
-import { Form } from "react-hook-form";
 import smart from "../Images/Image.png";
-import { Card, CardContent, Container } from "@mui/material";
+import { Box, Card, CardContent, Grid } from "@mui/material";
+import { Form } from "../Components/Form";
 
 export const MainBackground = () => {
   return (
-    <Container style={{
-      backgroundImage:`url(${smart})`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      maxWidth: '100%',
-      height: '673px',
-      padding: '0',
-    }}>
-      <Card sx={{ ml: 119, width: "auto", height: "auto" }}>
-        <CardContent>
-          {/* <Form/> */}
-        </CardContent>
-      </Card>
-    </Container>
+    <Box
+      sx={{
+        backgroundImage: `url(${smart})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100% 100%",
+        minHeight: "100vh",
+      }}
+    >
+      <Grid
+        container
+        direction="row"
+        justifyContent="flex-end"
+        alignSelf="center"
+        xs={12}
+      >
+        <Card>
+          <CardContent>
+            <Form />
+          </CardContent>
+        </Card>
+      </Grid>
+    </Box>
   );
 };
